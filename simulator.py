@@ -179,10 +179,15 @@ while(1):
                         item.visible = False
             break
         elif next_frame == 'i':
+            lost_item = input("What item is lost? ")
             for item in tracking_items:
-                find_lost_item(item)
-                user.update_location(item.get_location())
-                break
+                if lost_item == item.name:
+                    find_lost_item(item)
+                    user.update_location(item.get_location())
+                    break
+                else:
+                    print(f"{lost_item} not lost.")
+                    break
         else:
             continue
     
